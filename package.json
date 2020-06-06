@@ -1,0 +1,22 @@
+{
+  "name": "eyeguard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "mac": {
+    "icon": "./img/icon.png",
+    "category": "public.app-category.utilities"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^9.0.2"
+  },
+  "dependencies": {
+    "vue": "^2.6.11"
+  }
+}
