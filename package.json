@@ -17,6 +17,7 @@
     "electron": "^9.0.2"
   },
   "dependencies": {
+    "eslint": "^7.4.0",
     "vue": "^2.6.11"
   }
 }

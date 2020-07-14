@@ -1,3 +1,11 @@
 body{
     background-color: gray;
 }
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: black;
+        color: white
+    }
+
+
+}

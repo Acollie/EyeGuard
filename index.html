@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script async src="js/main.js"></script>
     <link rel="stylesheet" href="main.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Eye Guard</title>
 </head>
 <body>
-    <h1>Eye Guard</h1>
-<div id="app">
-    {{time_compute}}
-    <button @click="start_time()">{{this.button_name}}</button>
-    <button @click="stop_button()">Stop</button>
 
+    <img src="img/icon.png">
+<div class="container">
+    <div id="app">
+        {{time_compute}}
+        <button @click="start_time()" v-if="status==1" class="btn btn-primary">Start</button>
+        <button @click="stop_button()" v-if="status==2" class="btn btn-primary">Stop</button>
+       <div v-if="status==3">Please take a look at an object 20 metres away for the next 20 seconds</div>
+    </div>
 </div>
 </body>
 </html>

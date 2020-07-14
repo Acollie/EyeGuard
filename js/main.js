@@ -1,28 +1,43 @@
+let cool_down_time=20
+let screen_time=20*60
 
-new Vue({
+let vue=new Vue({
     el: '#app',
     data: {
         timeout:0,
         button_name:"Start",
-        stop:false
+        stop:false,
+        status:1,
     },
 
     methods:{
         stop_button:function(){
-            this.stop=true
+            this.status=-1;
         },
-      start_time:function () {
-          this.button_name="stop"
-          this.started=true
-          if(!this.stop){
-              setTimeout(function () {
-                  this.start_time()
-                  this.timeout+=1
-                  console.log(this.timeout)
+        start_time:function () {
+            this.status=2
+            var audio=new Audio('soundeffects/start.mp3');
+            audio.play();
 
-              }.bind(this), 1000)
-          }
-      }
+            thread()
+        },
+        cooldown:function(){
+            var audio=new Audio('soundeffects/end.mp3');
+            audio.play();
+            this.status=3
+        },
+        return_to_screen:function(){
+            var audio=new Audio('soundeffects/start.mp3');
+            audio.play();
+            this.status=1
+            this.timeout=1
+            console.log("here")
+        },
+        update_time:function () {
+            this.timeout+=1
+            console.log(this.timeout);
+        }
+
     },
     computed:{
         time_compute:function () {
@@ -30,3 +45,38 @@ new Vue({
         }
     }
 })
+
+function thread() {
+    if(vue.status===-1){
+        vue.status=1
+        vue.timeout=1
+        return
+    }
+    if(vue.timeout===screen_time){
+        vue.cooldown()
+        alert(1)
+    }
+
+    if(vue.timeout>=(screen_time+cool_down_time)){
+        vue.return_to_screen()
+        alert(2)
+    }
+    setTimeout(function () {
+        vue.update_time()
+        thread()
+    },1000)
+}
+
+function alert(mode) {
+    if(mode===1){
+        new Notification('Eye guard', {
+            body: 'Its been 20 minutes'
+        })
+    }
+    if(mode===2){
+        new Notification('Eye guard', {
+            body: "Let's get back to work"
+        })
+    }
+
+}
