@@ -14,9 +14,10 @@
 <div class="container">
     <div id="app">
         {{time_compute}}
+        {{percent}}%
         <button @click="start_time()" v-if="status==1" class="btn btn-primary">Start</button>
         <button @click="stop_button()" v-if="status==2" class="btn btn-primary">Stop</button>
-       <div v-if="status==3">Please take a look at an object 20 metres away for the next 20 seconds</div>
+        <div v-if="status==3">Please take a look at an object 20 metres away for the next 20 seconds</div>
     </div>
 </div>
 </body>

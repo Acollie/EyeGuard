@@ -1,3 +1,4 @@
+
 let cool_down_time=20
 let screen_time=20*60
 
@@ -9,7 +10,9 @@ let vue=new Vue({
         stop:false,
         status:1,
     },
+    mounted() {
 
+    },
     methods:{
         stop_button:function(){
             this.status=-1;
@@ -18,10 +21,11 @@ let vue=new Vue({
             this.status=2
             var audio=new Audio('soundeffects/start.mp3');
             audio.play();
-
             thread()
+
+
         },
-        cooldown:function(){
+        cool_down:function(){
             var audio=new Audio('soundeffects/end.mp3');
             audio.play();
             this.status=3
@@ -42,9 +46,12 @@ let vue=new Vue({
     computed:{
         time_compute:function () {
             return Math.floor(this.timeout / 60) +" minutes";
+        },
+        percent:function () {
+            return Math.round((this.timeout/(screen_time*60))*100)
         }
     }
-})
+});
 
 function thread() {
     if(vue.status===-1){
@@ -53,7 +60,7 @@ function thread() {
         return
     }
     if(vue.timeout===screen_time){
-        vue.cooldown()
+        vue.cool_down()
         alert(1)
     }
 
