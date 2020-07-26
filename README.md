@@ -1,5 +1,7 @@
 # Eye guard
-A simple program to help reduce the effect of eye strain
+
+![logo](/img/icon.png)
+A simple program to help reduce the effect of eye strain.
 --- 
 The program follows the 20-20-20 rule. Every 20 minutes take 20 seconds to look at something 20 feet (6 metres)
 ## Sources

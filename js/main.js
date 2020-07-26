@@ -39,7 +39,6 @@ let vue=new Vue({
         },
         update_time:function () {
             this.timeout+=1
-            console.log(this.timeout);
         }
 
     },
@@ -48,7 +47,9 @@ let vue=new Vue({
             return Math.floor(this.timeout / 60) +" minutes";
         },
         percent:function () {
-            return Math.round((this.timeout/(screen_time*60))*100)
+            console.log((this.timeout/(screen_time))*100)
+
+            return Math.round((this.timeout/(screen_time))*100)
         }
     }
 });
@@ -77,7 +78,7 @@ function thread() {
 function alert(mode) {
     if(mode===1){
         new Notification('Eye guard', {
-            body: 'Its been 20 minutes'
+            body: 'Its been 20 minutes take a 20 second break'
         })
     }
     if(mode===2){

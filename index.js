@@ -3,8 +3,8 @@ function createWindow () {
 
     const win = new BrowserWindow({
         // width: 300,
-        width: 800,
-        height: 600,
+        width: 400,
+        height: 400,
         resizable:false,
         webPreferences: {
             nodeIntegration: true
@@ -12,7 +12,7 @@ function createWindow () {
     })
 
     win.loadFile('index.html')
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
 }
 
 let appIcon = null
